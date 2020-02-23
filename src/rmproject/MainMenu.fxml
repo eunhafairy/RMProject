@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="496.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rmproject.MainMenuController">
+   <children>
+      <TabPane prefHeight="510.0" prefWidth="710.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Home">
+               <content>
+                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="471.0" prefWidth="686.0" style="-fx-background-color: #d1d1d1;">
+                     <children>
+                        <VBox layoutX="14.0" layoutY="14.0" prefHeight="441.0" prefWidth="100.0" spacing="20.0" style="-fx-background-color: GRAY;">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#appBtn" prefHeight="90.0" prefWidth="90.0" text="Appetizer" />
+                              <Button mnemonicParsing="false" onAction="#mainDishBtn" prefHeight="90.0" prefWidth="90.0" text="Main Dish" />
+                              <Button mnemonicParsing="false" onAction="#desBtn" prefHeight="90.0" prefWidth="90.0" text="Desssert" />
+                              <Button mnemonicParsing="false" onAction="#drinksBtn" prefHeight="90.0" prefWidth="90.0" text="Drinks" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                        <AnchorPane layoutX="123.0" layoutY="14.0" prefHeight="318.0" prefWidth="289.0">
+                           <children>
+                              <TableView fx:id="tableViewFood" prefHeight="381.0" prefWidth="289.0">
+                                 <columns>
+                                    <TableColumn fx:id="foodNameCol" onEditCommit="#changenameCellEvent" prefWidth="75.0" text="Name" />
+                                    <TableColumn fx:id="foodPriceCol" prefWidth="75.0" text="Price" />
+                                    <TableColumn fx:id="foodDescCol" prefWidth="138.0" text="Description" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <HBox layoutX="423.0" layoutY="14.0" prefHeight="382.0" prefWidth="264.0">
+                           <children>
+                              <TableView fx:id="tableViewOrder" prefHeight="382.0" prefWidth="267.0">
+                                 <columns>
+                                    <TableColumn fx:id="nameOrder" prefWidth="83.0" text="Item" />
+                                    <TableColumn fx:id="priceOrder" minWidth="0.0" prefWidth="58.0" text="Price" />
+                                    <TableColumn fx:id="qtyOrder" onEditCommit="#changeQtyCellEvent" prefWidth="54.0" text="Qty" />
+                                    <TableColumn fx:id="totalOrder" prefWidth="68.0" text="Total" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="423.0" layoutY="403.0" prefHeight="52.0" prefWidth="264.0" spacing="10.0">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="78.0" text="Check Out" />
+                              <Button mnemonicParsing="false" onAction="#removeItem" prefHeight="50.0" text="Remove Item" />
+                              <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="62.0" text="Clear" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                        <Button layoutX="168.0" layoutY="404.0" mnemonicParsing="false" onAction="#addOrderbtn" prefHeight="50.0" prefWidth="200.0" text="ADD ORDER" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Table">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="285.0" prefWidth="670.0">
+                           <children>
+                              <TableView prefHeight="284.0" prefWidth="672.0">
+                                 <columns>
+                                    <TableColumn prefWidth="167.0" text="Table Number" />
+                                    <TableColumn prefWidth="96.0" text="Availability" />
+                                    <TableColumn prefWidth="408.0" text="Server" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <HBox layoutX="14.0" layoutY="311.0" prefHeight="100.0" prefWidth="672.0" spacing="30.0">
+                           <children>
+                              <Button maxHeight="90.0" maxWidth="300.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="300.0" text="Detailed View" />
+                              <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="300.0" text="Add Table" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="50.0" right="50.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Products">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="471.0" prefWidth="628.0">
+                     <children>
+                        <AnchorPane prefHeight="285.0" prefWidth="670.0">
+                           <children>
+                              <TableView layoutX="14.0" layoutY="22.0" prefHeight="284.0" prefWidth="672.0">
+                                 <columns>
+                                    <TableColumn prefWidth="167.0" text="Name" />
+                                    <TableColumn prefWidth="96.0" text="Price" />
+                                    <TableColumn prefWidth="124.0" text="Category" />
+                                    <TableColumn prefWidth="284.0" text="Description" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <HBox layoutX="24.0" layoutY="321.0" prefHeight="100.0" prefWidth="672.0" spacing="30.0">
+                           <children>
+                              <Button maxHeight="90.0" maxWidth="300.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="300.0" text="Add New Product" />
+                              <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="300.0" text="Delete Product" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="50.0" right="50.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Admin">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane prefHeight="285.0" prefWidth="670.0">
+                           <children>
+                              <TableView layoutX="14.0" layoutY="22.0" prefHeight="284.0" prefWidth="672.0">
+                                 <columns>
+                                    <TableColumn prefWidth="167.0" text="First Name" />
+                                    <TableColumn prefWidth="167.0" text="Last Name" />
+                                    <TableColumn prefWidth="96.0" text="Job Title" />
+                                    <TableColumn prefWidth="241.0" text="Description" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <HBox layoutX="34.0" layoutY="331.0" prefHeight="100.0" prefWidth="672.0" spacing="30.0">
+                           <children>
+                              <Button maxHeight="90.0" maxWidth="300.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="300.0" text="Add New Employee" />
+                              <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="300.0" text="Delete Employee " />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="50.0" right="50.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
